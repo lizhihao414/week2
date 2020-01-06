@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lzh.dao.NianJianDao">
+ 	<insert id="insert">
+ 		insert into nianjian values
+ 		<foreach collection="list" item="l" separator=",">
+ 			(#{l.id},#{l.gjzi},#{l.miaoshu},#{l.name},#{l.chanpin},#{l.ziben},#{l.creattime},#{l.nianjiantime},#{l.nianjianzhuangtai},#{l.beizhu})
+ 		</foreach>
+ 	</insert>
+ 	
+ 	<select id="select" resultType="NianJian">
+ 		select * from nianjian
+ 		<where>
+ 			<if test="id!=null and id!=''">
+ 				id like "%" #{id} "%"
+ 			</if>
+ 			<if test="gjzi!=null and gjzi!=''">
+ 				and gjzi like "%" #{gjzi} "%"
+ 			</if>
+ 			<if test="miaoshu!=null and miaoshu!=''">
+ 				and miaoshu like "%" #{miaoshu} "%"
+ 			</if>
+ 			<if test="name!=null and name!=''">
+ 				and name like "%" #{name} "%"
+ 			</if>
+ 			<if test="chanpin!=null and chanpin!=''">
+ 				and chanpin like "%" #{chanpin} "%"
+ 			</if>
+ 			<if test="dizhi!=null and dizhi!=''">
+ 				and dizhi like "%" #{dizhi} "%"
+ 			</if>
+ 			<if test="ziben!=null and ziben!=''">
+ 				and ziben>=#{ziben}
+ 			</if>
+ 			<if test="ziben!=null and ziben!=''">
+ 				and ziben&lt;=#{ziben}
+ 			</if>
+ 			<if test="creattime!=null and creattime!=''">
+ 				and creattime>=#{creattime}
+ 			</if>
+ 			<if test="creattime!=null and creattime!=''">
+ 				and creattime&lt;=#{creattime}
+ 			</if>
+ 			<if test="nianjiantime!=null and nianjiantime!=''">
+ 				and nianjiantime>=#{nianjiantime}
+ 			</if>
+ 			<if test="nianjiantime!=null and nianjiantime!=''">
+ 				and nianjiantime&lt;=#{nianjiantime}
+ 			</if>
+ 			
+ 		</where>
+ 	</select>
+</mapper>
