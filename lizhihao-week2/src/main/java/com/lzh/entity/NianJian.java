@@ -1,7 +1,7 @@
 package com.lzh.entity;
 
 import java.math.BigInteger;
-
+ 
 public class NianJian {
 	private BigInteger id;//编号
 	
