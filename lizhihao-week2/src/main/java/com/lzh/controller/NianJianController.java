@@ -10,7 +10,7 @@ import com.github.pagehelper.PageInfo;
 import com.lzh.entity.NianJian;
 import com.lzh.service.NianJianService;
 @Controller
-public class NianJianController {
+public class NianJianController { 
 	@Autowired
 	private NianJianService nianJianService;
 	
